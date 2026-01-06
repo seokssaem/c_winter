@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C언어 방학특강 - 강의자료</title>
+    <meta name="description" content="C언어 방학특강 강의자료 - 20개 챕터로 구성된 체계적인 학습 자료">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>C언어 방학특강</h1>
+                <p class="subtitle">Winter Intensive Course</p>
+            </div>
+
+            <nav class="chapter-nav">
+                <div class="chapter-item active" data-chapter="1">
+                    <span class="chapter-number">01</span>
+                    <span class="chapter-title">개발환경 설정</span>
+                </div>
+                <div class="chapter-item" data-chapter="2">
+                    <span class="chapter-number">02</span>
+                    <span class="chapter-title">C언어 소개</span>
+                </div>
+                <div class="chapter-item" data-chapter="3">
+                    <span class="chapter-number">03</span>
+                    <span class="chapter-title">변수와 자료형</span>
+                </div>
+                <div class="chapter-item" data-chapter="4">
+                    <span class="chapter-number">04</span>
+                    <span class="chapter-title">기본 입출력함수</span>
+                </div>
+                <div class="chapter-item" data-chapter="5">
+                    <span class="chapter-number">05</span>
+                    <span class="chapter-title">연산자</span>
+                </div>
+                <div class="chapter-item" data-chapter="6">
+                    <span class="chapter-number">06</span>
+                    <span class="chapter-title">조건문</span>
+                </div>
+                <div class="chapter-item" data-chapter="7">
+                    <span class="chapter-number">07</span>
+                    <span class="chapter-title">반복문</span>
+                </div>
+                <div class="chapter-item" data-chapter="8">
+                    <span class="chapter-number">08</span>
+                    <span class="chapter-title">1차원배열</span>
+                </div>
+                <div class="chapter-item" data-chapter="9">
+                    <span class="chapter-number">09</span>
+                    <span class="chapter-title">포인터의 소개</span>
+                </div>
+                <div class="chapter-item" data-chapter="10">
+                    <span class="chapter-number">10</span>
+                    <span class="chapter-title">포인터와 배열의 관계</span>
+                </div>
+                <div class="chapter-item" data-chapter="11">
+                    <span class="chapter-number">11</span>
+                    <span class="chapter-title">다차원 배열</span>
+                </div>
+                <div class="chapter-item" data-chapter="12">
+                    <span class="chapter-number">12</span>
+                    <span class="chapter-title">문자열</span>
+                </div>
+                <div class="chapter-item" data-chapter="13">
+                    <span class="chapter-number">13</span>
+                    <span class="chapter-title">사용자함수</span>
+                </div>
+                <div class="chapter-item" data-chapter="14">
+                    <span class="chapter-number">14</span>
+                    <span class="chapter-title">포인터심화</span>
+                </div>
+                <div class="chapter-item" data-chapter="15">
+                    <span class="chapter-number">15</span>
+                    <span class="chapter-title">메모리동적할당</span>
+                </div>
+                <div class="chapter-item" data-chapter="16">
+                    <span class="chapter-number">16</span>
+                    <span class="chapter-title">구조체</span>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>© 2026 C언어 방학특강</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <div class="content-header">
+                <h2 id="content-title">Chapter 01 - 개발환경 설정</h2>
+                <div class="chapter-controls">
+                    <button id="prev-btn" class="nav-btn" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        이전
+                    </button>
+                    <button id="next-btn" class="nav-btn">
+                        다음
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-body" id="content-body">
+                <!-- Chapter content will be loaded here -->
+                <div class="chapter-content" id="chapter-1">
+                    <div class="image-container">
+                        <img src="images/chapter01_01.png" alt="개발환경 설정 - 슬라이드 1" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_02.png" alt="개발환경 설정 - 슬라이드 2" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_03.png" alt="개발환경 설정 - 슬라이드 3" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_04.png" alt="개발환경 설정 - 슬라이드 4" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_05.png" alt="개발환경 설정 - 슬라이드 5" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_06.png" alt="개발환경 설정 - 슬라이드 6" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_07.png" alt="개발환경 설정 - 슬라이드 7" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_08.png" alt="개발환경 설정 - 슬라이드 8" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_09.png" alt="개발환경 설정 - 슬라이드 9" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_10.png" alt="개발환경 설정 - 슬라이드 10" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_11.png" alt="개발환경 설정 - 슬라이드 11" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_12.png" alt="개발환경 설정 - 슬라이드 12" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter01_13.png" alt="개발환경 설정 - 슬라이드 13" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-2">
+                    <div class="image-container">
+                        <img src="images/chapter02_01.png" alt="C언어 소개 - 슬라이드 1" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_02.png" alt="C언어 소개 - 슬라이드 2" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_03.png" alt="C언어 소개 - 슬라이드 3" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_04.png" alt="C언어 소개 - 슬라이드 4" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_05.png" alt="C언어 소개 - 슬라이드 5" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_06.png" alt="C언어 소개 - 슬라이드 6" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_07.png" alt="C언어 소개 - 슬라이드 7" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_08.png" alt="C언어 소개 - 슬라이드 8" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_09.png" alt="C언어 소개 - 슬라이드 9" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_10.png" alt="C언어 소개 - 슬라이드 10" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_11.png" alt="C언어 소개 - 슬라이드 11" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_12.png" alt="C언어 소개 - 슬라이드 12" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_13.png" alt="C언어 소개 - 슬라이드 13" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_14.png" alt="C언어 소개 - 슬라이드 14" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_15.png" alt="C언어 소개 - 슬라이드 15" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_16.png" alt="C언어 소개 - 슬라이드 16" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_17.png" alt="C언어 소개 - 슬라이드 17" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_18.png" alt="C언어 소개 - 슬라이드 18" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_19.png" alt="C언어 소개 - 슬라이드 19" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_20.png" alt="C언어 소개 - 슬라이드 20" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_22.png" alt="C언어 소개 - 슬라이드 22" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_23.png" alt="C언어 소개 - 슬라이드 23" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_24.png" alt="C언어 소개 - 슬라이드 24" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_26.png" alt="C언어 소개 - 슬라이드 26" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_27.png" alt="C언어 소개 - 슬라이드 27" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter02_28.png" alt="C언어 소개 - 슬라이드 28" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-3">
+                    <div class="image-container">
+                        <img src="images/chapter03_01.png" alt="변수와 자료형 - 슬라이드 1" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_02.png" alt="변수와 자료형 - 슬라이드 2" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_03.png" alt="변수와 자료형 - 슬라이드 3" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_04.png" alt="변수와 자료형 - 슬라이드 4" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_05.png" alt="변수와 자료형 - 슬라이드 5" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_06.png" alt="변수와 자료형 - 슬라이드 6" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_07.png" alt="변수와 자료형 - 슬라이드 7" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_08.png" alt="변수와 자료형 - 슬라이드 8" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_09.png" alt="변수와 자료형 - 슬라이드 9" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_10.png" alt="변수와 자료형 - 슬라이드 10" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_11.png" alt="변수와 자료형 - 슬라이드 11" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_12.png" alt="변수와 자료형 - 슬라이드 12" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_13.png" alt="변수와 자료형 - 슬라이드 13" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_14.png" alt="변수와 자료형 - 슬라이드 14" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_15.png" alt="변수와 자료형 - 슬라이드 15" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_16.png" alt="변수와 자료형 - 슬라이드 16" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_17.png" alt="변수와 자료형 - 슬라이드 17" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_18.png" alt="변수와 자료형 - 슬라이드 18" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_19.png" alt="변수와 자료형 - 슬라이드 19" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_20.png" alt="변수와 자료형 - 슬라이드 20" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_21.png" alt="변수와 자료형 - 슬라이드 21" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_22.png" alt="변수와 자료형 - 슬라이드 22" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_23.png" alt="변수와 자료형 - 슬라이드 23" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_24.png" alt="변수와 자료형 - 슬라이드 24" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_25.png" alt="변수와 자료형 - 슬라이드 25" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_26.png" alt="변수와 자료형 - 슬라이드 26" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_27.png" alt="변수와 자료형 - 슬라이드 27" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_28.png" alt="변수와 자료형 - 슬라이드 28" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_29.png" alt="변수와 자료형 - 슬라이드 29" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_30.png" alt="변수와 자료형 - 슬라이드 30" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_31.png" alt="변수와 자료형 - 슬라이드 31" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_32.png" alt="변수와 자료형 - 슬라이드 32" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_33.png" alt="변수와 자료형 - 슬라이드 33" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_34.png" alt="변수와 자료형 - 슬라이드 34" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter03_35.png" alt="변수와 자료형 - 슬라이드 35" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-4">
+                    <div class="image-container">
+                        <img src="images/chapter04_01.png" alt="기본 입출력함수 - 슬라이드 1" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_02.png" alt="기본 입출력함수 - 슬라이드 2" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_03.png" alt="기본 입출력함수 - 슬라이드 3" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_04.png" alt="기본 입출력함수 - 슬라이드 4" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_05.png" alt="기본 입출력함수 - 슬라이드 5" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_06.png" alt="기본 입출력함수 - 슬라이드 6" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_07.png" alt="기본 입출력함수 - 슬라이드 7" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_08.png" alt="기본 입출력함수 - 슬라이드 8" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_09.png" alt="기본 입출력함수 - 슬라이드 9" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_10.png" alt="기본 입출력함수 - 슬라이드 10" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_11.png" alt="기본 입출력함수 - 슬라이드 11" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_12.png" alt="기본 입출력함수 - 슬라이드 12" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_13.png" alt="기본 입출력함수 - 슬라이드 13" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_14.png" alt="기본 입출력함수 - 슬라이드 14" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_15.png" alt="기본 입출력함수 - 슬라이드 15" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_16.png" alt="기본 입출력함수 - 슬라이드 16" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_17.png" alt="기본 입출력함수 - 슬라이드 17" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_18.png" alt="기본 입출력함수 - 슬라이드 18" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_19.png" alt="기본 입출력함수 - 슬라이드 19" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_20.png" alt="기본 입출력함수 - 슬라이드 20" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter04_21.png" alt="기본 입출력함수 - 슬라이드 21" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-5">
+                    <div class="image-container">
+                        <img src="images/chapter05_01.png" alt="연산자 - 슬라이드 1" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_02.png" alt="연산자 - 슬라이드 2" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_03.png" alt="연산자 - 슬라이드 3" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_04.png" alt="연산자 - 슬라이드 4" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_05.png" alt="연산자 - 슬라이드 5" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_06.png" alt="연산자 - 슬라이드 6" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_07.png" alt="연산자 - 슬라이드 7" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_08.png" alt="연산자 - 슬라이드 8" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_09.png" alt="연산자 - 슬라이드 9" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_10.png" alt="연산자 - 슬라이드 10" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_11.png" alt="연산자 - 슬라이드 11" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_12.png" alt="연산자 - 슬라이드 12" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_13.png" alt="연산자 - 슬라이드 13" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_14.png" alt="연산자 - 슬라이드 14" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_15.png" alt="연산자 - 슬라이드 15" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_16.png" alt="연산자 - 슬라이드 16" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_17.png" alt="연산자 - 슬라이드 17" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_18.png" alt="연산자 - 슬라이드 18" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_19.png" alt="연산자 - 슬라이드 19" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_20.png" alt="연산자 - 슬라이드 20" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_21.png" alt="연산자 - 슬라이드 21" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_22.png" alt="연산자 - 슬라이드 22" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_23.png" alt="연산자 - 슬라이드 23" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter05_24.png" alt="연산자 - 슬라이드 24" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-6">
+                    <div class="image-container">
+                        <img src="images/chapter06_01.png" alt="조건문 - 슬라이드 1" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_02.png" alt="조건문 - 슬라이드 2" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_03.png" alt="조건문 - 슬라이드 3" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_04.png" alt="조건문 - 슬라이드 4" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_05.png" alt="조건문 - 슬라이드 5" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_06.png" alt="조건문 - 슬라이드 6" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_07.png" alt="조건문 - 슬라이드 7" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_08.png" alt="조건문 - 슬라이드 8" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_09.png" alt="조건문 - 슬라이드 9" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_10.png" alt="조건문 - 슬라이드 10" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_11.png" alt="조건문 - 슬라이드 11" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter06_13.png" alt="조건문 - 슬라이드 13" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-7">
+                    <div class="image-container">
+                        <img src="images/chapter07_01.png" alt="반복문 - 슬라이드 1" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_02.png" alt="반복문 - 슬라이드 2" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_03.png" alt="반복문 - 슬라이드 3" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_04.png" alt="반복문 - 슬라이드 4" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_05.png" alt="반복문 - 슬라이드 5" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_06.png" alt="반복문 - 슬라이드 6" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_07.png" alt="반복문 - 슬라이드 7" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_08.png" alt="반복문 - 슬라이드 8" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_09.png" alt="반복문 - 슬라이드 9" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_10.png" alt="반복문 - 슬라이드 10" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_11.png" alt="반복문 - 슬라이드 11" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_12.png" alt="반복문 - 슬라이드 12" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_13.png" alt="반복문 - 슬라이드 13" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_14.png" alt="반복문 - 슬라이드 14" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_15.png" alt="반복문 - 슬라이드 15" class="content-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="images/chapter07_16.png" alt="반복문 - 슬라이드 16" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-8">
+                    <div class="image-container">
+                        <img src="images/chapter08_01.png" alt="1차원배열 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-9">
+                    <div class="image-container">
+                        <img src="images/chapter09_01.png" alt="포인터의 소개 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-10">
+                    <div class="image-container">
+                        <img src="images/chapter10_01.png" alt="포인터와 배열의 관계 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-11">
+                    <div class="image-container">
+                        <img src="images/chapter11_01.png" alt="다차원 배열 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-12">
+                    <div class="image-container">
+                        <img src="images/chapter12_01.png" alt="문자열 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-13">
+                    <div class="image-container">
+                        <img src="images/chapter13_01.png" alt="사용자함수 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-14">
+                    <div class="image-container">
+                        <img src="images/chapter14_01.png" alt="포인터심화 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-15">
+                    <div class="image-container">
+                        <img src="images/chapter15_01.png" alt="메모리동적할당 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-16">
+                    <div class="image-container">
+                        <img src="images/chapter16_01.png" alt="구조체 - 슬라이드 1" class="content-image">
+                    </div>
+                    <!-- 이미지를 추가하세요 -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
