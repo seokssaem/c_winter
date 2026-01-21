@@ -238,14 +238,63 @@ window.addEventListener('load', () => {
     // loadProgress();
 });
 
+
+// Password mapping for each answer
+const answerPasswords = {
+    'ch13-p1-answer': 'ch13p1',
+    'ch13-p2-answer': 'ch13p2',
+    'ch14-p1-answer': 'ch14p1',
+    'ch14-p2-answer': 'ch14p2',
+    'ch15-p1-answer': 'ch15p1',
+    'ch15-p2-answer': 'ch15p2',
+    'ch16-p1-answer': 'ch16p1',
+    'ch16-p2-answer': 'ch16p2'
+};
+
+// Track which answers have been unlocked
+const unlockedAnswers = new Set();
+
 // Toggle function for problem content
 function toggleContent(elementId) {
     const element = document.getElementById(elementId);
     if (!element) return;
 
-    if (element.classList.contains('show')) {
-        element.classList.remove('show');
+    // Check if this is an answer element that requires password
+    if (answerPasswords[elementId]) {
+        // If already showing, just hide it
+        if (element.classList.contains('show')) {
+            element.classList.remove('show');
+            return;
+        }
+
+        // If not unlocked yet, ask for password
+        if (!unlockedAnswers.has(elementId)) {
+            const password = prompt('정답 코드를 보려면 암호를 입력하세요:');
+
+            if (password === null) {
+                // User cancelled
+                return;
+            }
+
+            if (password === answerPasswords[elementId]) {
+                // Correct password
+                unlockedAnswers.add(elementId);
+                element.classList.add('show');
+            } else {
+                // Wrong password
+                alert('암호가 틀렸습니다. 다시 시도해주세요.');
+                return;
+            }
+        } else {
+            // Already unlocked, just show
+            element.classList.add('show');
+        }
     } else {
-        element.classList.add('show');
+        // Regular toggle for questions (no password needed)
+        if (element.classList.contains('show')) {
+            element.classList.remove('show');
+        } else {
+            element.classList.add('show');
+        }
     }
 }
