@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeChapterNavigation() {
     chapterItems.forEach((item, index) => {
         item.addEventListener('click', () => {
-            const chapterNum = parseInt(item.dataset.chapter);
-            navigateToChapter(chapterNum);
+            const chapterData = item.dataset.chapter;
+            navigateToChapter(chapterData);
         });
     });
 
@@ -60,7 +60,20 @@ function initializeChapterNavigation() {
 }
 
 // Navigate to specific chapter
-function navigateToChapter(chapterNum) {
+function navigateToChapter(chapterData) {
+    let chapterNum, isProblems = false, chapterTitle;
+
+    // Handle sub-chapters (e.g., "13-problems")
+    if (typeof chapterData === 'string' && chapterData.includes('-problems')) {
+        const parts = chapterData.split('-');
+        chapterNum = parseInt(parts[0]);
+        isProblems = true;
+        chapterTitle = `${chapterTitles[chapterNum - 1]} > 문제`;
+    } else {
+        chapterNum = typeof chapterData === 'string' ? parseInt(chapterData) : chapterData;
+        chapterTitle = chapterTitles[chapterNum - 1];
+    }
+
     if (chapterNum < 1 || chapterNum > totalChapters) return;
 
     // Update current chapter
@@ -69,7 +82,8 @@ function navigateToChapter(chapterNum) {
     // Update sidebar active state
     chapterItems.forEach(item => {
         item.classList.remove('active');
-        if (parseInt(item.dataset.chapter) === chapterNum) {
+        if (item.dataset.chapter === chapterData ||
+            (typeof chapterData === 'number' && parseInt(item.dataset.chapter) === chapterData)) {
             item.classList.add('active');
             // Scroll item into view
             item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -77,12 +91,13 @@ function navigateToChapter(chapterNum) {
     });
 
     // Update content title
-    contentTitle.textContent = `Chapter ${String(chapterNum).padStart(2, '0')} - ${chapterTitles[chapterNum - 1]}`;
+    contentTitle.textContent = `Chapter ${String(chapterNum).padStart(2, '0')} - ${chapterTitle}`;
 
     // Update content display
+    const targetId = isProblems ? `chapter-${chapterNum}-problems` : `chapter-${chapterNum}`;
     chapterContents.forEach(content => {
         content.classList.add('hidden');
-        if (content.id === `chapter-${chapterNum}`) {
+        if (content.id === targetId) {
             content.classList.remove('hidden');
         }
     });
@@ -222,3 +237,15 @@ window.addEventListener('load', () => {
     // Uncomment to enable auto-load of saved progress
     // loadProgress();
 });
+
+// Toggle function for problem content
+function toggleContent(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    if (element.classList.contains('show')) {
+        element.classList.remove('show');
+    } else {
+        element.classList.add('show');
+    }
+}

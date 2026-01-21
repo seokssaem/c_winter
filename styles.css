@@ -442,3 +442,188 @@ body {
     color: var(--text-light);
     font-size: 0.9375rem;
 }
+
+/* Sub-chapter Styles */
+.chapter-item.sub-chapter {
+    padding-left: 3rem;
+    font-size: 0.875rem;
+}
+
+.chapter-item.sub-chapter .chapter-title {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.chapter-item.sub-chapter:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.chapter-item.sub-chapter.active {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+/* Problems Container */
+.problems-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Problem Card */
+.problem-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border-left: 4px solid var(--primary-color);
+}
+
+.problem-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.problem-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 0.75rem;
+    margin-right: 0.75rem;
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.toggle-btn:active {
+    transform: translateY(0);
+}
+
+.toggle-btn.answer-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.toggle-btn.answer-btn:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.toggle-btn span {
+    font-size: 1.125rem;
+}
+
+/* Toggle Content */
+.toggle-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    margin-top: 0;
+}
+
+.toggle-content.show {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+.toggle-content p {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.toggle-content p:last-child {
+    margin-bottom: 0;
+}
+
+.toggle-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.toggle-content code {
+    background: var(--bg-secondary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+    color: var(--primary-color);
+}
+
+/* Code Content */
+.code-content pre {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.code-content code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: none;
+    padding: 0;
+}
+
+.code-content pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+.code-content pre::-webkit-scrollbar-track {
+    background: #0f172a;
+    border-radius: 4px;
+}
+
+.code-content pre::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+}
+
+.code-content pre::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Responsive adjustments for problems */
+@media (max-width: 768px) {
+    .problem-card {
+        padding: 1.5rem;
+    }
+    
+    .problem-title {
+        font-size: 1.125rem;
+    }
+    
+    .toggle-btn {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+    }
+}
