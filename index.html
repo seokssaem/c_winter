@@ -1167,19 +1167,91 @@
                 <div class="chapter-content hidden" id="chapter-13-problems">
                     <div class="problems-container">
                         <div class="problem-card">
-                            <h3 class="problem-title">문제 1: 두 수의 합을 구하는 함수</h3>
+                            <h3 class="problem-title">문제 1: 두 정수 사이의 합 구하기</h3>
                             <button class="toggle-btn" onclick="toggleContent('ch13-p1-question')">
                                 <span>📖</span> 문제 보기
                             </button>
                             <div class="toggle-content" id="ch13-p1-question">
-                                <p>두 개의 정수를 매개변수로 받아서 그 합을 반환하는 함수 <code>add</code>를 작성하세요.</p>
-                                <p><strong>입력 예시:</strong> 5, 3</p>
-                                <p><strong>출력 예시:</strong> 8</p>
+                                <p>두 개의 정수를 매개변수로 입력받아 두 정수 사이에 있는 모든 정수의 합을 구하여 반환하는 함수를 정의하고, main함수에서 이를 호출하는 프로그램을
+                                    작성하세요.</p>
+                                <p><strong>실행결과 예시:</strong></p>
+                                <p>5와 9 사이의 정수의 총합은 : 21</p>
                             </div>
                             <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p1-answer')">
                                 <span>💡</span> 정답 코드 보기
                             </button>
                             <div class="toggle-content code-content" id="ch13-p1-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int totalBetween(int a, int b) { //사용자 함수 선언 및 정의
+    int total = 0; //합계
+    for (int i = a + 1; i &lt; b; i++) {
+        total += i; //total = total + i;
+    }
+    return total;
+}
+
+int main(void) {
+    int result = totalBetween(5, 9); //함수 호출
+    printf("5와 9 사이의 정수의 총합은 : %d\n", result);
+    return 0;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 2: 7의 배수 개수 구하기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch13-p2-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch13-p2-question">
+                                <p>한 개의 정수를 매개변수로 입력받아 입력받은 수와 그 수보다 200 더 큰 정수 사이에 7의 배수가 몇 개나 존재하는지를 구하여 그 결과를 반환하는
+                                    함수를 구현하세요.</p>
+                                <p>예를 들어 100을 전달받으면 100부터 300 사이의 7의 배수가 몇 개 존재하는지 구하면 됩니다.</p>
+                                <p><strong>실행결과 예시:</strong></p>
+                                <p>정수를 입력하세요 : 100</p>
+                                <p>100과 300 사이의 7의 배수는 28개입니다!</p>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p2-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch13-p2-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int howManySeven(int number) {
+    int howmany = 0; //7의 배수의 개수
+    for (int i = number; i &lt; number + 200; i++) {
+        if (i % 7 == 0)
+            howmany++; //1 증가
+    }
+    return howmany;
+}
+
+int main(void) {
+    int number, result;
+    printf("정수를 입력하세요 : ");
+    scanf_s("%d", &amp;number);
+    result = howManySeven(number); //사용자 함수 호출
+    printf("%d과 %d 사이의 7의 배수는 %d개!\n", number, number + 200, result);
+    return 0;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 3: 두 수의 합을 구하는 함수</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch13-p3-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch13-p3-question">
+                                <p>두 개의 정수를 매개변수로 받아서 그 합을 반환하는 함수 <code>add</code>를 작성하세요.</p>
+                                <p><strong>입력 예시:</strong> 5, 3</p>
+                                <p><strong>출력 예시:</strong> 8</p>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p3-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch13-p3-answer">
                                 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int add(int a, int b) {
@@ -1196,19 +1268,19 @@ int main() {
                         </div>
 
                         <div class="problem-card">
-                            <h3 class="problem-title">문제 2: 팩토리얼 계산 함수</h3>
-                            <button class="toggle-btn" onclick="toggleContent('ch13-p2-question')">
+                            <h3 class="problem-title">문제 4: 팩토리얼 계산 함수</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch13-p4-question')">
                                 <span>📖</span> 문제 보기
                             </button>
-                            <div class="toggle-content" id="ch13-p2-question">
+                            <div class="toggle-content" id="ch13-p4-question">
                                 <p>정수 n을 입력받아 n!을 계산하는 함수 <code>factorial</code>을 작성하세요.</p>
                                 <p><strong>입력 예시:</strong> 5</p>
                                 <p><strong>출력 예시:</strong> 120</p>
                             </div>
-                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p2-answer')">
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p4-answer')">
                                 <span>💡</span> 정답 코드 보기
                             </button>
-                            <div class="toggle-content code-content" id="ch13-p2-answer">
+                            <div class="toggle-content code-content" id="ch13-p4-answer">
                                 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int factorial(int n) {
@@ -1223,8 +1295,136 @@ int main() {
 }</code></pre>
                             </div>
                         </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 5: cm를 m로 환산하기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch13-p5-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch13-p5-question">
+                                <p>사용자로부터 키를 cm 단위로 입력받아 m 단위로 환산하여 출력하는 프로그램을 작성해 보세요.</p>
+                                <p>이때 사용자 정의 함수를 정의하고 입력받은 키를 함수의 인자로 전달받아 cm를 m 단위로 변환하는 기능을 수행하도록 합니다.</p>
+                                <p><strong>실행 예:</strong></p>
+                                <p>키를 cm 단위로 입력하세요 : 181</p>
+                                <p>결과 : 1.81 m</p>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p5-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch13-p5-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+double convertCentiToMeter(int height) {
+    double convertResult = (double)height / 100;
+    return convertResult;
+}
+
+int main(void) {
+    int height;
+    printf("키를 cm 단위로 입력하세요 : ");
+    scanf_s("%d", &amp;height);
+    double result = convertCentiToMeter(height);
+    printf("결과 : %0.2f m\n", result);
+    return 0;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 6: Call-by-value와 Call-by-reference</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch13-p6-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch13-p6-question">
+                                <p>int형 변수 number1과 number2를 선언하고, 두 개의 인자를 전달받는 두 개의 함수를 정의해 보세요.</p>
+                                <p>두 함수의 이름과 기능은 다음과 같습니다:</p>
+                                <p><strong>getDiffByValue:</strong> Call-by-value 방식으로 두 수의 차를 구하여 반환하는 함수</p>
+                                <p><strong>callDiffByRef:</strong> Call-by-reference 방식으로 두 수 중에서 큰 것을 number1에, 작은 것을
+                                    number2에 저장하는 함수 (number1에 저장된 정수가 더 큰 경우 변화가 없으나, number2에 저장된 정수가 더 큰 경우 교환)</p>
+                                <p><strong>HINT:</strong> Call-by-reference 함수의 매개 변수를 선언할 때는 포인터 연산자를 사용합니다.</p>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p6-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch13-p6-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int getDiffByValue(int num1, int num2) {
+    return (num1 &gt; num2) ? (num1 - num2) : (num2 - num1);
+}
+
+void callDiffByRef(int *num1, int *num2) {
+    if (*num2 &gt; *num1) {
+        int temp = *num1;
+        *num1 = *num2;
+        *num2 = temp;
+    }
+}
+
+int main(void) {
+    int number1 = 10, number2 = 20;
+    printf("차이: %d\n", getDiffByValue(number1, number2));
+    callDiffByRef(&amp;number1, &amp;number2);
+    printf("number1: %d, number2: %d\n", number1, number2);
+    return 0;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 7: 가위바위보 게임</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch13-p7-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch13-p7-question">
+                                <p>가위바위보 게임을 만들어 보겠습니다. 다음과 같이 규칙을 정하고 난수 발생 함수 srand를 사용해 1~3 중 하나의 숫자를 발생시킵니다.</p>
+                                <p>가위: 1, 바위: 2, 보: 3</p>
+                                <p>난수가 발생한 다음에는 사용자가 자신의 숫자를(1~3) 직접 입력하여 난수와 가위바위보를 한 결과를 출력해 보겠습니다.</p>
+                                <p>가위바위보 게임은 함수로 만들고, main 함수에는 이에 대한 호출문 외에는 존재하지 않도록 프로그램을 작성해 보세요.</p>
+                                <p><strong>실행 예:</strong></p>
+                                <p>가위 1 바위 2 보 3 당신의 선택은 : 2</p>
+                                <p>당신은 바위, 컴퓨터 난수는 바위, 비겼습니다.</p>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch13-p7-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch13-p7-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+void playGame() {
+    const char* choices[] = {"", "가위", "바위", "보"};
+    int user, computer;
+    
+    srand(time(NULL));
+    computer = rand() % 3 + 1;
+    
+    printf("가위 1 바위 2 보 3 당신의 선택은 : ");
+    scanf_s("%d", &amp;user);
+    
+    printf("당신은 %s, 컴퓨터 난수는 %s, ", choices[user], choices[computer]);
+    
+    if (user == computer) {
+        printf("비겼습니다.\n");
+    } else if ((user == 1 &amp;&amp; computer == 3) || 
+               (user == 2 &amp;&amp; computer == 1) || 
+               (user == 3 &amp;&amp; computer == 2)) {
+        printf("이겼습니다!\n");
+    } else {
+        printf("졌습니다.\n");
+    }
+}
+
+int main(void) {
+    playGame();
+    return 0;
+}</code></pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
 
                 <!-- Chapter 14 Problems -->
                 <div class="chapter-content hidden" id="chapter-14-problems">

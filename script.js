@@ -243,6 +243,11 @@ window.addEventListener('load', () => {
 const answerPasswords = {
     'ch13-p1-answer': 'ch13p1',
     'ch13-p2-answer': 'ch13p2',
+    'ch13-p3-answer': 'ch13p3',
+    'ch13-p4-answer': 'ch13p4',
+    'ch13-p5-answer': 'ch13p5',
+    'ch13-p6-answer': 'ch13p6',
+    'ch13-p7-answer': 'ch13p7',
     'ch14-p1-answer': 'ch14p1',
     'ch14-p2-answer': 'ch14p2',
     'ch15-p1-answer': 'ch15p1',
@@ -250,6 +255,7 @@ const answerPasswords = {
     'ch16-p1-answer': 'ch16p1',
     'ch16-p2-answer': 'ch16p2'
 };
+
 
 // Track which answers have been unlocked
 const unlockedAnswers = new Set();
