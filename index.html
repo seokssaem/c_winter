@@ -1535,6 +1535,63 @@ int main() {
 }</code></pre>
                             </div>
                         </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 3: 이중 포인터 실행 결과 예측</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch14-p3-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch14-p3-question">
+                                <p>다음 프로그램의 실행 결과를 예측해 보세요.</p>
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int a = 33, b = 66;
+    int *pa = &amp;a;
+    int *pb = &amp;b;
+    int **ppa = &amp;pa;
+    int **ppb = &amp;pb;
+    int *ptr;
+
+    ptr = *ppb;
+    *ppb = *ppa;
+    *ppa = ptr;
+
+    printf("%d %d %d %d\n", a, b, *pa, *pb);
+
+    return 0;
+}</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch14-p3-answer')">
+                                <span>💡</span> 정답 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch14-p3-answer">
+                                <p><strong>실행 결과:</strong></p>
+                                <pre><code>33 66 66 33</code></pre>
+
+                                <p><strong>해설:</strong></p>
+                                <p>이 프로그램은 이중 포인터를 사용하여 포인터 변수들이 가리키는 대상을 교환합니다.</p>
+
+                                <ol>
+                                    <li>초기 상태:
+                                        <ul>
+                                            <li><code>a = 33</code>, <code>b = 66</code></li>
+                                            <li><code>pa</code>는 <code>a</code>를 가리킴</li>
+                                            <li><code>pb</code>는 <code>b</code>를 가리킴</li>
+                                            <li><code>ppa</code>는 <code>pa</code>를 가리킴</li>
+                                            <li><code>ppb</code>는 <code>pb</code>를 가리킴</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>ptr = *ppb;</code> → <code>ptr</code>에 <code>pb</code>의 값(b의 주소)을 저장</li>
+                                    <li><code>*ppb = *ppa;</code> → <code>pb</code>가 이제 <code>a</code>를 가리킴</li>
+                                    <li><code>*ppa = ptr;</code> → <code>pa</code>가 이제 <code>b</code>를 가리킴</li>
+                                    <li>결과적으로 <code>pa</code>와 <code>pb</code>가 가리키는 대상이 서로 바뀜</li>
+                                    <li>따라서 <code>a</code>는 33, <code>b</code>는 66, <code>*pa</code>는 66,
+                                        <code>*pb</code>는 33</li>
+                                </ol>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
