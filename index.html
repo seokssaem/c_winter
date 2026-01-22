@@ -1593,6 +1593,75 @@ int main(void)
                                 </ol>
                             </div>
                         </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 4: 함수 포인터 선언</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch14-p4-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch14-p4-question">
+                                <p>다음과 같이 선언된 함수들에 대해서 대입 연산이 가능하도록 빈칸에 함수 포인터를 선언해 보세요(함수의 정의부는 생략).</p>
+                                <pre><code class="language-c">01      #include &lt;stdio.h&gt;
+02
+03      // 함수의 선언부
+04      int FirstFunc(int a, int b);
+05      double SecondFunc(double d);
+06      void ThirdFunc(char * c);
+07
+08      int main(void)
+09      {
+10
+11          // 이 부분에 코드를 작성하세요.
+12          // (빈칸)
+13          // (빈칸)
+14
+15          first = FirstFunc;
+16          second = SecondFunc;
+17          third = ThirdFunc;
+18
+19          return 0;
+20      }</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch14-p4-answer')">
+                                <span>💡</span> 정답 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch14-p4-answer">
+                                <p><strong>정답:</strong></p>
+                                <pre><code class="language-c">int (*first)(int, int);
+double (*second)(double);
+void (*third)(char *);</code></pre>
+
+                                <p><strong>해설:</strong></p>
+                                <p>함수 포인터는 함수의 시그니처(반환형과 매개변수)와 일치하도록 선언해야 합니다.</p>
+
+                                <ul>
+                                    <li><code>int (*first)(int, int);</code>
+                                        <ul>
+                                            <li>반환형: <code>int</code></li>
+                                            <li>매개변수: <code>int</code> 2개</li>
+                                            <li><code>FirstFunc</code>와 시그니처가 일치</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>double (*second)(double);</code>
+                                        <ul>
+                                            <li>반환형: <code>double</code></li>
+                                            <li>매개변수: <code>double</code> 1개</li>
+                                            <li><code>SecondFunc</code>와 시그니처가 일치</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>void (*third)(char *);</code>
+                                        <ul>
+                                            <li>반환형: <code>void</code></li>
+                                            <li>매개변수: <code>char *</code> 1개</li>
+                                            <li><code>ThirdFunc</code>와 시그니처가 일치</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <p><strong>함수 포인터 선언 형식:</strong></p>
+                                <pre><code class="language-c">반환형 (*포인터이름)(매개변수타입1, 매개변수타입2, ...);</code></pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
