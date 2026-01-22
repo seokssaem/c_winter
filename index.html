@@ -1389,6 +1389,7 @@ int main(void) {
                                 <span>💡</span> 정답 코드 보기
                             </button>
                             <div class="toggle-content code-content" id="ch13-p7-answer">
+                                <p><strong>풀이 1: if-else 문 사용</strong></p>
                                 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;time.h&gt;
@@ -1418,6 +1419,51 @@ void playGame() {
 
 int main(void) {
     playGame();
+    return 0;
+}</code></pre>
+
+                                <p><strong>풀이 2: 삼항 연산자 사용</strong></p>
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt; 
+
+void game(void)
+{
+    srand((unsigned int)time(NULL));
+    int computer = rand() % 3 + 1;
+    int me;
+
+    printf("가위 1 바위 2 보 3\n당신의 선택은 : ");
+    scanf_s("%d", &amp;me);
+
+    if (me == 1)
+    {
+        printf("당신은 가위, ");
+        printf(computer == 1 ? "컴퓨터 난수는 가위, 비겼습니다." :
+            computer == 2 ? "컴퓨터 난수는 바위, 졌습니다." :
+            "컴퓨터 난수는 보, 이겼습니다.");
+    }
+    else if (me == 2)
+    {
+        printf("당신은 바위, ");
+        printf(computer == 1 ? "컴퓨터 난수는 가위, 이겼습니다." :
+            computer == 2 ? "컴퓨터 난수는 바위, 비겼습니다." :
+            "컴퓨터 난수는 보, 졌습니다.");
+    }
+    else if (me == 3)
+    {
+        printf("당신은 보, ");
+        printf(computer == 1 ? "컴퓨터 난수는 가위, 졌습니다." :
+            computer == 2 ? "컴퓨터 난수는 바위, 이겼습니다." :
+            "컴퓨터 난수는 보, 비겼습니다.");
+    }
+    printf("\n\n");
+}
+
+int main(void)
+{
+    game();
+
     return 0;
 }</code></pre>
                             </div>
