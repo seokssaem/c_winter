@@ -19,7 +19,7 @@ const chapterTitles = [
     '구조체'
 ];
 
-let currentChapter = 0;
+let currentChapter = 1;
 const totalChapters = 16;
 
 // DOM Elements
@@ -83,8 +83,10 @@ function navigateToChapter(chapterData) {
     // Update sidebar active state
     chapterItems.forEach(item => {
         item.classList.remove('active');
-        if (item.dataset.chapter === chapterData ||
-            (typeof chapterData === 'number' && parseInt(item.dataset.chapter) === chapterData)) {
+        // Convert both to strings for consistent comparison
+        const itemChapter = String(item.dataset.chapter);
+        const targetChapter = String(chapterData);
+        if (itemChapter === targetChapter) {
             item.classList.add('active');
             // Scroll item into view
             item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
