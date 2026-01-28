@@ -1,5 +1,6 @@
 // Chapter data
 const chapterTitles = [
+    'Code',  // Chapter 0
     '개발환경 설정',
     'C언어 소개',
     '변수와 자료형',
@@ -18,7 +19,7 @@ const chapterTitles = [
     '구조체'
 ];
 
-let currentChapter = 1;
+let currentChapter = 0;
 const totalChapters = 16;
 
 // DOM Elements
@@ -47,7 +48,7 @@ function initializeChapterNavigation() {
     });
 
     prevBtn.addEventListener('click', () => {
-        if (currentChapter > 1) {
+        if (currentChapter > 0) {
             navigateToChapter(currentChapter - 1);
         }
     });
@@ -68,13 +69,13 @@ function navigateToChapter(chapterData) {
         const parts = chapterData.split('-');
         chapterNum = parseInt(parts[0]);
         isProblems = true;
-        chapterTitle = `${chapterTitles[chapterNum - 1]} > 문제`;
+        chapterTitle = `${chapterTitles[chapterNum]} > 문제`;
     } else {
         chapterNum = typeof chapterData === 'string' ? parseInt(chapterData) : chapterData;
-        chapterTitle = chapterTitles[chapterNum - 1];
+        chapterTitle = chapterTitles[chapterNum];
     }
 
-    if (chapterNum < 1 || chapterNum > totalChapters) return;
+    if (chapterNum < 0 || chapterNum > totalChapters) return;
 
     // Update current chapter
     currentChapter = chapterNum;
@@ -91,7 +92,11 @@ function navigateToChapter(chapterData) {
     });
 
     // Update content title
-    contentTitle.textContent = `Chapter ${String(chapterNum).padStart(2, '0')} - ${chapterTitle}`;
+    if (chapterNum === 0) {
+        contentTitle.textContent = `${chapterTitle}`;
+    } else {
+        contentTitle.textContent = `Chapter ${String(chapterNum).padStart(2, '0')} - ${chapterTitle}`;
+    }
 
     // Update content display
     const targetId = isProblems ? `chapter-${chapterNum}-problems` : `chapter-${chapterNum}`;
@@ -119,14 +124,14 @@ function navigateToChapter(chapterData) {
 
 // Update navigation button states
 function updateNavigationButtons() {
-    prevBtn.disabled = currentChapter === 1;
+    prevBtn.disabled = currentChapter === 0;
     nextBtn.disabled = currentChapter === totalChapters;
 }
 
 // Keyboard navigation
 function handleKeyboardNavigation(e) {
     // Left arrow or 'p' for previous
-    if ((e.key === 'ArrowLeft' || e.key === 'p') && currentChapter > 1) {
+    if ((e.key === 'ArrowLeft' || e.key === 'p') && currentChapter > 0) {
         navigateToChapter(currentChapter - 1);
     }
     // Right arrow or 'n' for next
@@ -142,7 +147,7 @@ function handleKeyboardNavigation(e) {
     }
     // Home key for first chapter
     else if (e.key === 'Home') {
-        navigateToChapter(1);
+        navigateToChapter(0);
     }
     // End key for last chapter
     else if (e.key === 'End') {
