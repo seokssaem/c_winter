@@ -68,9 +68,15 @@
                     <span class="chapter-number">07</span>
                     <span class="chapter-title">반복문</span>
                 </div>
+                <div class="chapter-item sub-chapter" data-chapter="7-problems">
+                    <span class="chapter-title">📝 문제</span>
+                </div>
                 <div class="chapter-item" data-chapter="8">
                     <span class="chapter-number">08</span>
                     <span class="chapter-title">1차원배열</span>
+                </div>
+                <div class="chapter-item sub-chapter" data-chapter="8-problems">
+                    <span class="chapter-title">📝 문제</span>
                 </div>
                 <div class="chapter-item" data-chapter="9">
                     <span class="chapter-number">09</span>
@@ -1489,6 +1495,238 @@ int main(void) {
                     </div>
                 </div>
 
+                <div class="chapter-content hidden" id="chapter-7-problems">
+                    <div class="problems-section">
+                        <h2 class="problems-header">📝 C언어 반복문 기초 연습문제</h2>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 1: 1부터 N까지의 합 구하기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch7-p1-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch7-p1-question">
+                                <p>사용자로부터 양의 정수 N을 입력받아 1부터 N까지의 합을 구하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>양의 정수를 입력하세요: 5
+1부터 5까지의 합: 15</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch7-p1-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch7-p1-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int n, sum = 0;
+    
+    printf("양의 정수를 입력하세요: ");
+    scanf_s("%d", &n);
+    
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    
+    printf("1부터 %d까지의 합: %d\n", n, sum);
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li>사용자가 입력한 <code>n</code>까지 <code>for</code>문으로 반복</li>
+                                    <li><code>sum</code> 변수에 <code>i</code>값을 누적하여 합계 계산</li>
+                                    <li>예) n=5 입력 시 → 1+2+3+4+5 = 15 출력</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 2: 홀수만 출력하기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch7-p2-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch7-p2-question">
+                                <p>1부터 20까지의 숫자 중 홀수만 출력하는 프로그램을 작성하세요. (한 줄에 출력)</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>1부터 20까지 홀수: 1 3 5 7 9 11 13 15 17 19</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch7-p2-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch7-p2-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    printf("1부터 20까지 홀수: ");
+    
+    for (int i = 1; i <= 20; i++) {
+        if (i % 2 == 1) {  // 또는 i % 2 != 0
+            printf("%d ", i);
+        }
+    }
+    
+    printf("\n");
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li><code>i % 2 == 1</code> 조건으로 홀수 판별</li>
+                                    <li>2로 나눈 나머지가 1이면 홀수</li>
+                                    <li>출력 결과: 1 3 5 7 9 11 13 15 17 19</li>
+                                </ul>
+                                <p><strong>다른 방법:</strong></p>
+                                <pre><code class="language-c">for (int i = 1; i <= 20; i += 2) {
+    printf("%d ", i);
+}</code></pre>
+                                <p>시작값을 1로 하고 2씩 증가시키는 방법도 가능합니다!</p>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 3: 거꾸로 카운트다운</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch7-p3-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch7-p3-question">
+                                <p>사용자가 입력한 숫자부터 0까지 거꾸로 카운트다운하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>카운트다운 시작 숫자를 입력하세요: 5
+카운트다운 시작!
+5
+4
+3
+2
+1
+0
+발사!!</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch7-p3-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch7-p3-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int num;
+    
+    printf("카운트다운 시작 숫자를 입력하세요: ");
+    scanf_s("%d", &num);
+    
+    printf("카운트다운 시작!\n");
+    
+    while (num >= 0) {
+        printf("%d\n", num);
+        num--;
+    }
+    
+    printf("발사!!\n");
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li><code>while</code>문으로 <code>num</code>이 0 이상일 때까지 반복</li>
+                                    <li><code>num--</code>로 숫자를 1씩 감소</li>
+                                    <li>예) 5 입력 시 → 5, 4, 3, 2, 1, 0, 발사!! 출력</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 4: 구구단 특정 단의 특정 범위만 출력</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch7-p4-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch7-p4-question">
+                                <p>사용자로부터 단(dan)과 시작 숫자(start), 끝 숫자(end)를 입력받아 해당 범위만큼만 구구단을 출력하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>구구단 단을 입력하세요: 7
+시작 숫자를 입력하세요: 3
+끝 숫자를 입력하세요: 6
+
+==== 7단 (3 ~ 6) ====
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch7-p4-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch7-p4-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int dan, start, end;
+    
+    printf("구구단 단을 입력하세요: ");
+    scanf_s("%d", &dan);
+    
+    printf("시작 숫자를 입력하세요: ");
+    scanf_s("%d", &start);
+    
+    printf("끝 숫자를 입력하세요: ");
+    scanf_s("%d", &end);
+    
+    printf("\n==== %d단 (%d ~ %d) ====\n", dan, start, end);
+    
+    for (int i = start; i <= end; i++) {
+        printf("%d x %d = %d\n", dan, i, dan * i);
+    }
+    
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li>3개의 변수(<code>dan</code>, <code>start</code>, <code>end</code>) 입력받기</li>
+                                    <li><code>for</code>문의 시작값과 종료조건을 사용자 입력값으로 설정</li>
+                                    <li>예) dan=7, start=3, end=6 입력 시 위와 같이 출력</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 5: 5의 배수만 더하기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch7-p5-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch7-p5-question">
+                                <p>1부터 50까지의 숫자 중 5의 배수만 찾아서 합계를 구하는 프로그램을 작성하세요. (5의 배수도 함께 출력)</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>1부터 50까지 5의 배수: 5 10 15 20 25 30 35 40 45 50
+5의 배수들의 합계: 275</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch7-p5-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch7-p5-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int sum = 0;
+    
+    printf("1부터 50까지 5의 배수: ");
+    
+    for (int i = 1; i <= 50; i++) {
+        if (i % 5 == 0) {  // 5의 배수 조건
+            printf("%d ", i);
+            sum += i;
+        }
+    }
+    
+    printf("\n5의 배수들의 합계: %d\n", sum);
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li><code>i % 5 == 0</code> 조건으로 5의 배수 판별</li>
+                                    <li>조건을 만족하면 출력하고 <code>sum</code>에 누적</li>
+                                    <li>출력: 5 10 15 20 25 30 35 40 45 50</li>
+                                    <li>합계: 5+10+15+20+25+30+35+40+45+50 = 275</li>
+                                </ul>
+                                <p><strong>효율적인 다른 방법:</strong></p>
+                                <pre><code class="language-c">for (int i = 5; i <= 50; i += 5) {
+    printf("%d ", i);
+    sum += i;
+}</code></pre>
+                                <p>시작을 5로, 증가를 5씩 하면 조건문 없이도 가능합니다!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="chapter-content hidden" id="chapter-8">
                     <div class="image-container">
                         <img src="images/chapter08_01.jpg" alt="1차원배열 - 슬라이드 1" class="content-image">
@@ -1510,6 +1748,327 @@ int main(void) {
                     </div>
                     <div class="image-container">
                         <img src="images/chapter08_07.jpg" alt="1차원배열 - 슬라이드 7" class="content-image">
+                    </div>
+                </div>
+
+                <div class="chapter-content hidden" id="chapter-8-problems">
+                    <div class="problems-section">
+                        <h2 class="problems-header">📝 C언어 배열 기초 연습문제</h2>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 1: 배열의 최댓값 찾기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch8-p1-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch8-p1-question">
+                                <p>5개의 정수를 입력받아 배열에 저장하고, 그 중 가장 큰 값을 찾아 출력하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>1번째 정수 입력: 30
+2번째 정수 입력: 10
+3번째 정수 입력: 50
+4번째 정수 입력: 20
+5번째 정수 입력: 40
+
+입력한 숫자: 30 10 50 20 40
+최댓값: 50</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch8-p1-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch8-p1-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int arr[5];
+    int max;
+    
+    // 5개의 정수 입력받기
+    for (int i = 0; i &lt; 5; i++) {
+        printf("%d번째 정수 입력: ", i + 1);
+        scanf_s("%d", &arr[i]);
+    }
+    
+    // 첫 번째 값을 최댓값으로 초기화
+    max = arr[0];
+    
+    // 나머지 값들과 비교
+    for (int i = 1; i &lt; 5; i++) {
+        if (arr[i] &gt; max) {
+            max = arr[i];
+        }
+    }
+    
+    printf("\n입력한 숫자: ");
+    for (int i = 0; i &lt; 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n최댓값: %d\n", max);
+    
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li>배열의 첫 번째 값(<code>arr[0]</code>)을 최댓값으로 초기화</li>
+                                    <li><code>for</code>문으로 배열을 순회하며 현재 최댓값보다 큰 값이 나오면 갱신</li>
+                                    <li>예) 입력: 30, 10, 50, 20, 40 → 최댓값: 50</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 2: 배열 요소의 합과 평균 구하기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch8-p2-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch8-p2-question">
+                                <p>크기가 6인 배열에 정수를 입력받아 모든 요소의 합계와 평균을 구하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>6개의 정수를 입력하세요:
+1번째 숫자: 10
+2번째 숫자: 20
+3번째 숫자: 30
+4번째 숫자: 40
+5번째 숫자: 50
+6번째 숫자: 60
+
+입력한 숫자: 10 20 30 40 50 60
+합계: 210
+평균: 35.00</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch8-p2-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch8-p2-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int arr[6];
+    int sum = 0;
+    double average;
+    
+    // 6개의 정수 입력
+    printf("6개의 정수를 입력하세요:\n");
+    for (int i = 0; i &lt; 6; i++) {
+        printf("%d번째 숫자: ", i + 1);
+        scanf_s("%d", &arr[i]);
+        sum += arr[i];  // 입력받으면서 동시에 합계 계산
+    }
+    
+    // 평균 계산
+    average = (double)sum / 6;
+    
+    // 결과 출력
+    printf("\n입력한 숫자: ");
+    for (int i = 0; i &lt; 6; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n합계: %d\n", sum);
+    printf("평균: %.2f\n", average);
+    
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li>입력받으면서 <code>sum</code>에 누적하여 합계 계산</li>
+                                    <li><code>(double)sum / 6</code>으로 실수형 평균 계산</li>
+                                    <li>예) 입력: 10, 20, 30, 40, 50, 60 → 합계: 210, 평균: 35.00</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 3: 짝수와 홀수 개수 세기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch8-p3-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch8-p3-question">
+                                <p>10개의 정수를 입력받아 배열에 저장하고, 짝수와 홀수의 개수를 각각 세어 출력하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>10개의 정수를 입력하세요:
+1번째 숫자: 1
+2번째 숫자: 2
+...
+
+짝수: 2 4 6 8 10
+홀수: 1 3 5 7 9
+
+짝수 개수: 5개
+홀수 개수: 5개</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch8-p3-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch8-p3-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int arr[10];
+    int even_count = 0;  // 짝수 개수
+    int odd_count = 0;   // 홀수 개수
+    
+    // 10개의 정수 입력
+    printf("10개의 정수를 입력하세요:\n");
+    for (int i = 0; i &lt; 10; i++) {
+        printf("%d번째 숫자: ", i + 1);
+        scanf_s("%d", &arr[i]);
+    }
+    
+    // 짝수, 홀수 개수 세기
+    printf("\n짝수: ");
+    for (int i = 0; i &lt; 10; i++) {
+        if (arr[i] % 2 == 0) {
+            printf("%d ", arr[i]);
+            even_count++;
+        }
+    }
+    
+    printf("\n홀수: ");
+    for (int i = 0; i &lt; 10; i++) {
+        if (arr[i] % 2 == 1) {
+            printf("%d ", arr[i]);
+            odd_count++;
+        }
+    }
+    
+    printf("\n\n짝수 개수: %d개\n", even_count);
+    printf("홀수 개수: %d개\n", odd_count);
+    
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li><code>arr[i] % 2 == 0</code> 조건으로 짝수 판별</li>
+                                    <li><code>arr[i] % 2 == 1</code> 조건으로 홀수 판별</li>
+                                    <li>각각의 개수를 카운트하여 출력</li>
+                                    <li>예) 입력: 1,2,3,4,5,6,7,8,9,10 → 짝수: 5개, 홀수: 5개</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 4: 배열 역순으로 출력하기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch8-p4-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch8-p4-question">
+                                <p>8개의 정수를 입력받아 배열에 저장한 후, 입력한 순서와 역순으로 출력하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>8개의 정수를 입력하세요:
+1번째 숫자: 1
+2번째 숫자: 2
+...
+8번째 숫자: 8
+
+입력 순서: 1 2 3 4 5 6 7 8
+역순 출력: 8 7 6 5 4 3 2 1</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch8-p4-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch8-p4-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int arr[8];
+    
+    // 8개의 정수 입력
+    printf("8개의 정수를 입력하세요:\n");
+    for (int i = 0; i &lt; 8; i++) {
+        printf("%d번째 숫자: ", i + 1);
+        scanf_s("%d", &arr[i]);
+    }
+    
+    // 입력 순서대로 출력
+    printf("\n입력 순서: ");
+    for (int i = 0; i &lt; 8; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    // 역순으로 출력
+    printf("\n역순 출력: ");
+    for (int i = 7; i &gt;= 0; i--) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li>첫 번째 <code>for</code>문: <code>i=0</code>부터 <code>i=7</code>까지 정방향 출력</li>
+                                    <li>두 번째 <code>for</code>문: <code>i=7</code>부터 <code>i=0</code>까지 역방향 출력
+                                        (<code>i--</code>)</li>
+                                    <li>배열의 마지막 인덱스는 배열크기-1 (8-1=7)</li>
+                                    <li>예) 입력: 1 2 3 4 5 6 7 8 → 역순: 8 7 6 5 4 3 2 1</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 5: 특정 값보다 큰 수 찾기</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch8-p5-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch8-p5-question">
+                                <p>7개의 정수를 입력받아 배열에 저장하고, 사용자가 입력한 기준값보다 큰 숫자들만 출력하는 프로그램을 작성하세요.</p>
+                                <p><strong>예시 실행:</strong></p>
+                                <pre><code>7개의 정수를 입력하세요:
+1번째 숫자: 10
+2번째 숫자: 25
+3번째 숫자: 8
+4번째 숫자: 40
+5번째 숫자: 15
+6번째 숫자: 30
+7번째 숫자: 5
+
+기준값을 입력하세요: 20
+
+20보다 큰 숫자들: 25 40 30
+기준값보다 큰 숫자의 개수: 3개</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch8-p5-answer')">
+                                <span>💡</span> 정답 코드 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch8-p5-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(void) {
+    int arr[7];
+    int standard;  // 기준값
+    int count = 0; // 기준값보다 큰 수의 개수
+    
+    // 7개의 정수 입력
+    printf("7개의 정수를 입력하세요:\n");
+    for (int i = 0; i &lt; 7; i++) {
+        printf("%d번째 숫자: ", i + 1);
+        scanf_s("%d", &arr[i]);
+    }
+    
+    // 기준값 입력
+    printf("\n기준값을 입력하세요: ");
+    scanf_s("%d", &standard);
+    
+    // 기준값보다 큰 수 찾기
+    printf("\n%d보다 큰 숫자들: ", standard);
+    for (int i = 0; i &lt; 7; i++) {
+        if (arr[i] &gt; standard) {
+            printf("%d ", arr[i]);
+            count++;
+        }
+    }
+    
+    if (count == 0) {
+        printf("없음");
+    }
+    
+    printf("\n기준값보다 큰 숫자의 개수: %d개\n", count);
+    
+    return 0;
+}</code></pre>
+                                <p><strong>정답 설명:</strong></p>
+                                <ul>
+                                    <li>배열에 7개의 정수를 입력받은 후 기준값 입력</li>
+                                    <li><code>arr[i] &gt; standard</code> 조건으로 기준값보다 큰 수 판별</li>
+                                    <li><code>count</code> 변수로 조건을 만족하는 개수 카운트</li>
+                                    <li>예) 입력: 10, 25, 8, 40, 15, 30, 5 / 기준값: 20 → 출력: 25 40 30 (3개)</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
