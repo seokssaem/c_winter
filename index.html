@@ -4056,37 +4056,37 @@ int main() {
                             </button>
                             <div class="toggle-content code-content" id="ch16-p1-answer">
                                 <pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
 
 struct Student {
-    char name[50];
-    int id;
-    float score;
+    char name[20];
+    int age;
+    float grade;
 };
 
 int main() {
-    struct Student students[3];
-    
-    for (int i = 0; i &lt; 3; i++) {
-        printf("학생 %d 정보 입력\n", i+1);
-        printf("이름: ");
-        scanf("%s", students[i].name);
-        printf("학번: ");
-        scanf("%d", &amp;students[i].id);
-        printf("성적: ");
-        scanf("%f", &amp;students[i].score);
-    }
-    
-    printf("\n학생 정보 출력:\n");
-    for (int i = 0; i &lt; 3; i++) {
-        printf("%s (%d): %.2f점\n", 
-               students[i].name, 
-               students[i].id, 
-               students[i].score);
-    }
-    
+    struct Student s;
+
+    printf("이름 입력: ");
+    scanf_s("%s", s.name, sizeof(s.name));  // 문자열: 버퍼 크기 추가
+    printf("나이 입력: ");
+    scanf_s("%d", &amp;s.age);                  // 숫자형: 기존과 동일
+    printf("학점 입력: ");
+    scanf_s("%f", &amp;s.grade);
+
+    printf("\n=== 학생 정보 ===\n");
+    printf("이름: %s\n", s.name);
+    printf("나이: %d\n", s.age);
+    printf("학점: %.1f\n", s.grade);
+
     return 0;
 }</code></pre>
+                                <p><strong>핵심 포인트</strong></p>
+                                <ul>
+                                    <li>문자열(<code>%s</code>) 입력 시 <code>scanf_s</code>에 버퍼 크기 추가 →
+                                        <code>sizeof(s.name)</code>
+                                    </li>
+                                    <li>숫자형(<code>%d</code>, <code>%f</code>)은 기존 <code>scanf</code>와 사용법이 동일</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -4106,23 +4106,272 @@ int main() {
 #include &lt;math.h&gt;
 
 struct Point {
-    double x;
-    double y;
+    float x;
+    float y;
 };
 
-double distance(struct Point *p1, struct Point *p2) {
-    double dx = p2->x - p1->x;
-    double dy = p2->y - p1->y;
-    return sqrt(dx*dx + dy*dy);
+int main() {
+    struct Point p1, p2;
+
+    printf("점1 입력 (x y): ");
+    scanf_s("%f %f", &amp;p1.x, &amp;p1.y);    // 숫자형만 있으면 기존과 동일
+    printf("점2 입력 (x y): ");
+    scanf_s("%f %f", &amp;p2.x, &amp;p2.y);
+
+    float dist = sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
+
+    printf("\n두 점 사이의 거리: %.2f\n", dist);
+
+    return 0;
+}</code></pre>
+                                <p><strong>핵심 포인트</strong></p>
+                                <ul>
+                                    <li>숫자형(<code>%f</code>)만 입력받는 경우 <code>scanf_s</code>와 <code>scanf</code>의 사용법은 동일
+                                    </li>
+                                    <li><code>sqrt()</code>, <code>pow()</code> 사용 시
+                                        <code>#include &lt;math.h&gt;</code> 필요</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 3: 학생 3명의 평균 점수 구하기 ⭐⭐</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch16-p3-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch16-p3-question">
+                                <p>구조체 배열을 활용해 여러 명의 데이터를 처리하세요.</p>
+                                <p><strong>[조건]</strong></p>
+                                <ul>
+                                    <li>구조체 이름: <code>Student</code></li>
+                                    <li>멤버: 이름(<code>name</code>), 점수(<code>score</code>, 정수)</li>
+                                    <li>학생 3명의 정보를 입력받아 평균 점수를 출력할 것</li>
+                                </ul>
+                                <p><strong>[실행 예시]</strong></p>
+                                <pre><code>학생 1 - 이름: 철수  점수: 80
+학생 2 - 이름: 영희  점수: 90
+학생 3 - 이름: 민준  점수: 75
+
+=== 결과 ===
+철수: 80점
+영희: 90점
+민준: 75점
+평균: 81.67점</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch16-p3-answer')">
+                                <span>💡</span> 정답 및 해설 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch16-p3-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+struct Student {
+    char name[20];
+    int score;
+};
+
+int main() {
+    struct Student s[3];
+    int total = 0;
+
+    for (int i = 0; i &lt; 3; i++) {
+        printf("학생 %d - 이름: ", i + 1);
+        scanf_s("%s", s[i].name, sizeof(s[i].name));  // 배열 요소도 동일하게
+        printf("학생 %d - 점수: ", i + 1);
+        scanf_s("%d", &amp;s[i].score);
+        total += s[i].score;
+    }
+
+    printf("\n=== 결과 ===\n");
+    for (int i = 0; i &lt; 3; i++) {
+        printf("%s: %d점\n", s[i].name, s[i].score);
+    }
+    printf("평균: %.2f점\n", (float)total / 3);
+
+    return 0;
+}</code></pre>
+                                <p><strong>핵심 포인트</strong></p>
+                                <ul>
+                                    <li><strong>구조체 배열</strong> 접근: <code>s[i].멤버명</code></li>
+                                    <li>구조체 배열 요소의 문자열 입력 시에도 <code>sizeof(s[i].name)</code>으로 버퍼 크기 전달</li>
+                                    <li><code>for</code>문으로 반복 입력/출력 처리</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 4: 두 사각형 중 넓이가 큰 것 출력하기 ⭐⭐</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch16-p4-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch16-p4-question">
+                                <p>구조체와 함수를 함께 활용해보세요.</p>
+                                <p><strong>[조건]</strong></p>
+                                <ul>
+                                    <li>구조체 이름: <code>Rectangle</code></li>
+                                    <li>멤버: 가로(<code>width</code>), 세로(<code>height</code>) → 정수형</li>
+                                    <li>두 사각형의 정보를 입력받아 넓이를 비교하고 더 큰 사각형의 정보를 출력할 것</li>
+                                    <li>넓이를 계산하는 함수 <code>getArea()</code>를 별도로 만들 것</li>
+                                </ul>
+                                <p><strong>[실행 예시]</strong></p>
+                                <pre><code>사각형1 - 가로: 4  세로: 5
+사각형2 - 가로: 3  세로: 8
+사각형1 넓이: 20
+사각형2 넓이: 24
+더 큰 사각형: 사각형2 (가로: 3, 세로: 8)</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch16-p4-answer')">
+                                <span>💡</span> 정답 및 해설 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch16-p4-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+struct Rectangle {
+    int width;
+    int height;
+};
+
+int getArea(struct Rectangle r) {
+    return r.width * r.height;
 }
 
 int main() {
-    struct Point p1 = {0.0, 0.0};
-    struct Point p2 = {3.0, 4.0};
-    
-    printf("두 점 사이의 거리: %.2f\n", distance(&amp;p1, &amp;p2));
+    struct Rectangle r1, r2;
+
+    printf("사각형1 - 가로: ");
+    scanf_s("%d", &amp;r1.width);
+    printf("사각형1 - 세로: ");
+    scanf_s("%d", &amp;r1.height);
+
+    printf("사각형2 - 가로: ");
+    scanf_s("%d", &amp;r2.width);
+    printf("사각형2 - 세로: ");
+    scanf_s("%d", &amp;r2.height);
+
+    int area1 = getArea(r1);
+    int area2 = getArea(r2);
+
+    printf("\n사각형1 넓이: %d\n", area1);
+    printf("사각형2 넓이: %d\n", area2);
+
+    if (area1 &gt; area2)
+        printf("더 큰 사각형: 사각형1 (가로: %d, 세로: %d)\n", r1.width, r1.height);
+    else if (area2 &gt; area1)
+        printf("더 큰 사각형: 사각형2 (가로: %d, 세로: %d)\n", r2.width, r2.height);
+    else
+        printf("두 사각형의 넓이가 같습니다.\n");
+
     return 0;
 }</code></pre>
+                                <p><strong>핵심 포인트</strong></p>
+                                <ul>
+                                    <li>구조체를 <strong>함수의 매개변수</strong>로 전달하는 방법</li>
+                                    <li>정수형(<code>%d</code>) 입력은 <code>scanf_s</code>와 <code>scanf</code> 사용법이 동일</li>
+                                    <li>값에 의한 전달(call by value)이므로 원본은 변경되지 않음</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <h3 class="problem-title">문제 5: 포인터로 구조체 멤버 수정하기 ⭐⭐⭐</h3>
+                            <button class="toggle-btn" onclick="toggleContent('ch16-p5-question')">
+                                <span>📖</span> 문제 보기
+                            </button>
+                            <div class="toggle-content" id="ch16-p5-question">
+                                <p>구조체 포인터와 화살표 연산자를 사용해보세요.</p>
+                                <p><strong>[조건]</strong></p>
+                                <ul>
+                                    <li>구조체 이름: <code>BankAccount</code></li>
+                                    <li>멤버: 이름(<code>name</code>), 잔액(<code>balance</code>, 정수)</li>
+                                    <li>구조체 포인터를 매개변수로 받는 <code>deposit()</code> 함수를 만들 것</li>
+                                    <li><code>deposit()</code> 함수 안에서 잔액을 직접 수정할 것 (포인터 사용)</li>
+                                </ul>
+                                <p><strong>[실행 예시]</strong></p>
+                                <pre><code>계좌주: 홍길동
+초기 잔액: 10000
+
+입금액 입력: 5000
+
+=== 입금 완료 ===
+계좌주: 홍길동
+현재 잔액: 15000</code></pre>
+                            </div>
+                            <button class="toggle-btn answer-btn" onclick="toggleContent('ch16-p5-answer')">
+                                <span>💡</span> 정답 및 해설 보기
+                            </button>
+                            <div class="toggle-content code-content" id="ch16-p5-answer">
+                                <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+struct BankAccount {
+    char name[20];
+    int balance;
+};
+
+void deposit(struct BankAccount *acc, int amount) {
+    acc-&gt;balance += amount;
+}
+
+int main() {
+    struct BankAccount account;
+
+    printf("계좌주: ");
+    scanf_s("%s", account.name, sizeof(account.name));  // 버퍼 크기 전달
+    printf("초기 잔액: ");
+    scanf_s("%d", &amp;account.balance);
+
+    int amount;
+    printf("\n입금액 입력: ");
+    scanf_s("%d", &amp;amount);
+
+    deposit(&amp;account, amount);
+
+    printf("\n=== 입금 완료 ===\n");
+    printf("계좌주: %s\n", account.name);
+    printf("현재 잔액: %d\n", account.balance);
+
+    return 0;
+}</code></pre>
+                                <p><strong>핵심 포인트</strong></p>
+                                <ul>
+                                    <li>함수에서 구조체를 <strong>수정</strong>하려면 포인터로 전달해야 함 → <code>&amp;account</code></li>
+                                    <li>포인터로 멤버 접근 시 <strong>화살표(-&gt;)</strong> 연산자 사용 → <code>acc-&gt;balance</code>
+                                    </li>
+                                    <li><code>(*acc).balance</code>와 <code>acc-&gt;balance</code>는 동일한 표현</li>
+                                    <li>문자열 입력 시 <code>sizeof(account.name)</code>으로 버퍼 크기를 반드시 전달</li>
+                                </ul>
+                                <h4>📌 scanf vs scanf_s 차이 한눈에 보기</h4>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>입력 타입</th>
+                                            <th>scanf</th>
+                                            <th>scanf_s</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>정수 <code>%d</code></td>
+                                            <td><code>scanf("%d", &amp;n)</code></td>
+                                            <td><code>scanf_s("%d", &amp;n)</code> → 동일</td>
+                                        </tr>
+                                        <tr>
+                                            <td>실수 <code>%f</code></td>
+                                            <td><code>scanf("%f", &amp;f)</code></td>
+                                            <td><code>scanf_s("%f", &amp;f)</code> → 동일</td>
+                                        </tr>
+                                        <tr>
+                                            <td>문자열 <code>%s</code></td>
+                                            <td><code>scanf("%s", str)</code></td>
+                                            <td><code>scanf_s("%s", str, sizeof(str))</code> → 버퍼 크기 추가</td>
+                                        </tr>
+                                        <tr>
+                                            <td>문자 <code>%c</code></td>
+                                            <td><code>scanf("%c", &amp;ch)</code></td>
+                                            <td><code>scanf_s("%c", &amp;ch, 1)</code> → 크기 1 추가</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>⚠️ <strong>주의:</strong> <code>scanf_s</code>는 Visual Studio(Windows) 환경에서 권장합니다.
+                                    GCC(Linux/Mac) 환경에서는 지원되지 않을 수 있습니다.</p>
                             </div>
                         </div>
                     </div>
